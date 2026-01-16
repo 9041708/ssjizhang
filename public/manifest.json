@@ -1,0 +1,10 @@
+{
+  "name": "SanS三石记账系统",
+  "short_name": "三石记账",
+  "start_url": "/public/index.php",
+  "scope": "/public/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#0d6efd"
+}

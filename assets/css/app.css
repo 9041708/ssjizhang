@@ -1,0 +1,498 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+}
+
+/* 主题模式：白天 / 夜间 */
+.theme-light {
+    --bg-body: #f3f4f6;
+    --bg-card: #ffffff;
+    --bg-sidebar: #111827;
+    --bg-navbar: #ffffff;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --border-subtle: rgba(15, 23, 42, 0.08);
+}
+
+.theme-dark {
+    --bg-body: #020617;
+    --bg-card: #020617;
+    --bg-sidebar: #020617;
+    --bg-navbar: #020617;
+    --text-main: #e5e7eb;
+    --text-muted: #9ca3af;
+    --border-subtle: rgba(148, 163, 184, 0.3);
+
+    /* 覆盖 Bootstrap 内置变量，让默认文字和卡片在暗黑模式下自动变亮 */
+    --bs-body-bg: #020617;
+    --bs-body-color: #e5e7eb;
+    --bs-card-bg: #020617;
+    --bs-card-border-color: var(--border-subtle);
+    --bs-border-color: var(--border-subtle);
+    --bs-heading-color: #e5e7eb;
+    --bs-secondary-color: #9ca3af; /* text-body-secondary 等 */
+    --bs-secondary-bg: #020617;
+    --bs-tertiary-bg: #020617;
+    --bs-table-bg: transparent;
+    --bs-table-color: #e5e7eb;
+    --bs-table-striped-bg: rgba(148, 163, 184, 0.08);
+    --bs-table-striped-color: #e5e7eb;
+    --bs-link-color: #38bdf8;
+    --bs-link-hover-color: #0ea5e9;
+}
+
+body.theme-light,
+body.theme-dark {
+    background-color: var(--bg-body) !important;
+    color: var(--text-main);
+}
+
+body.theme-dark .card {
+    background-color: var(--bg-card);
+    border-color: var(--border-subtle);
+}
+
+body.theme-dark .navbar,
+body.theme-dark .navbar.navbar-light {
+    background-color: var(--bg-navbar) !important;
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+body.theme-dark .sidebar {
+    background-color: var(--bg-sidebar) !important;
+}
+
+body.theme-dark .sidebar .list-group-item {
+    background-color: transparent;
+    color: #e5e7eb;
+}
+
+body.theme-dark .sidebar .list-group-item:hover {
+    background-color: rgba(148, 163, 184, 0.2);
+}
+
+body.theme-dark .list-group-item,
+body.theme-dark .table,
+body.theme-dark .form-control,
+body.theme-dark .form-select {
+    background-color: #020617;
+    color: var(--text-main);
+    border-color: var(--border-subtle);
+}
+
+body.theme-dark .form-control:focus,
+body.theme-dark .form-select:focus {
+    background-color: #020617;
+    color: var(--text-main);
+}
+
+body.theme-dark .text-muted,
+body.theme-dark .form-text {
+    color: var(--text-muted) !important;
+}
+
+body.theme-dark .table thead,
+body.theme-dark .table-light {
+    background-color: #020617;
+}
+
+/* 夜间模式下对常见 Bootstrap 颜色类做整体调优，避免反色或对比度不足 */
+body.theme-dark .bg-white,
+body.theme-dark .bg-light {
+    background-color: #020617 !important;
+}
+
+body.theme-dark .navbar.bg-white {
+    background-color: #020617 !important;
+}
+
+body.theme-dark .card,
+body.theme-dark .card-body,
+body.theme-dark .card-footer,
+body.theme-dark .card-header {
+    background-color: #020617;
+    border-color: var(--border-subtle);
+    box-shadow: 0 0.35rem 1.2rem rgba(15, 23, 42, 0.55);
+}
+
+body.theme-dark .border-0 {
+    border-color: transparent !important;
+}
+
+body.theme-dark .text-dark,
+body.theme-dark .text-body,
+body.theme-dark .text-body-secondary,
+body.theme-dark .text-secondary {
+    color: var(--text-main) !important;
+}
+
+body.theme-dark .text-muted {
+    color: var(--text-muted) !important;
+}
+
+body.theme-dark .table {
+    color: var(--text-main);
+}
+
+/* 暗黑模式下，所有表格的单元格文字默认使用浅色，便于阅读明细列表 */
+body.theme-dark table thead th,
+body.theme-dark table tbody td {
+    color: var(--text-main);
+}
+
+body.theme-dark .table-striped > tbody > tr:nth-of-type(odd) > * {
+    --bs-table-accent-bg: rgba(148, 163, 184, 0.08);
+}
+
+/* 用户管理表格在不同主题下的文字与边框颜色优化 */
+body.theme-light .settings-users-table thead th,
+body.theme-light .settings-users-table tbody td {
+    color: #111827;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.theme-dark .settings-users-table thead,
+body.theme-dark .settings-users-table thead th {
+    background-color: #020617;
+}
+
+body.theme-dark .settings-users-table thead th,
+body.theme-dark .settings-users-table tbody td {
+    color: #e5e7eb !important;
+    border-color: rgba(148, 163, 184, 0.4);
+}
+
+body.theme-dark .form-control,
+body.theme-dark .form-select {
+    background-color: #020617;
+    color: var(--text-main);
+    border-color: var(--border-subtle);
+}
+
+body.theme-dark .form-control:focus,
+body.theme-dark .form-select:focus {
+    background-color: #020617;
+    color: var(--text-main);
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 0.15rem rgba(56, 189, 248, 0.25);
+}
+
+body.theme-dark .nav-tabs .nav-link {
+    color: var(--text-muted);
+}
+
+body.theme-dark .nav-tabs .nav-link.active {
+    color: var(--text-main);
+    background-color: #020617;
+    border-color: var(--border-subtle) var(--border-subtle) #020617;
+}
+
+body.theme-dark .alert {
+    border-color: var(--border-subtle);
+}
+
+/* 顶部主题切换按钮优化 */
+.btn-theme-toggle {
+    width: 32px;
+    height: 32px;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    font-size: 0.9rem;
+    line-height: 1;
+    border-width: 1px;
+    transition: background-color 0.15s ease-out, color 0.15s ease-out, border-color 0.15s ease-out, box-shadow 0.15s ease-out, transform 0.1s ease-out;
+}
+
+body.theme-light .btn-theme-toggle {
+    background-color: #ffffff;
+    color: #f59e0b; /* 太阳黄 */
+    border-color: rgba(148, 163, 184, 0.6);
+}
+
+body.theme-dark .btn-theme-toggle {
+    background-color: #020617;
+    color: #e5e7eb; /* 月亮白 */
+    border-color: rgba(148, 163, 184, 0.7);
+}
+
+.btn-theme-toggle:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0.25rem 0.5rem rgba(15, 23, 42, 0.18);
+}
+
+body.theme-light .btn-theme-toggle:hover {
+    background-color: #fefce8;
+    border-color: #fbbf24;
+}
+
+body.theme-dark .btn-theme-toggle:hover {
+    background-color: #020617;
+    border-color: #e5e7eb;
+}
+
+.card {
+    border-radius: 0.8rem;
+    box-shadow: 0 0.25rem 0.9rem rgba(15, 23, 42, 0.12);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    border: none;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1d4ed8, #4338ca);
+}
+
+.navbar-brand {
+    font-weight: 600;
+}
+
+.sidebar {
+    width: 220px;
+}
+
+.sidebar .list-group-item {
+    border-radius: 0;
+    font-size: 0.95rem;
+}
+
+/* 通用 SVG 图标缩放：确保粘贴自 Iconfont 等的 SVG 能自适应 18/24 像素容器，不会被裁剪成空白 */
+.category-icon svg,
+.item-icon svg,
+.account-icon svg,
+.tx-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.sidebar .list-group-item:hover {
+    background-color: rgba(148, 163, 184, 0.25);
+}
+
+/* 账户下拉中余额颜色：负为红，正为蓝，0 为黑
+ * 使用通用类并加 !important，提升在不同浏览器下的生效概率。
+ */
+option.balance-neg {
+    color: #dc3545 !important;
+}
+
+option.balance-pos {
+    color: #0d6efd !important;
+}
+
+option.balance-zero {
+    color: #212529 !important;
+}
+
+/* 账户管理表格行距更紧凑 */
+.table-accounts tbody td {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+/* 预算 / 账户 / 项目 / 分类等管理表格在不同主题下的文字与边框颜色优化 */
+body.theme-light .table-accounts thead th,
+body.theme-light .table-accounts tbody td {
+    color: #111827;
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+body.theme-dark .table-accounts thead,
+body.theme-dark .table-accounts thead th {
+    background-color: #020617;
+}
+
+body.theme-dark .table-accounts thead th,
+body.theme-dark .table-accounts tbody td {
+    color: #e5e7eb !important;
+    border-color: rgba(148, 163, 184, 0.4);
+}
+
+/* 移动端账户管理页面整体更紧凑 */
+@media (max-width: 576px) {
+    .accounts-page .card-body {
+        padding: 0.75rem;
+    }
+    .accounts-page h2.h5 {
+        font-size: 0.95rem;
+    }
+    .accounts-page .small {
+        font-size: 0.7rem;
+    }
+    .accounts-page .table-accounts {
+        font-size: 0.75rem;
+    }
+    .accounts-page .table-accounts th,
+    .accounts-page .table-accounts td {
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+    .accounts-page .table-accounts .btn {
+        padding: 0.1rem 0.35rem;
+        font-size: 0.7rem;
+    }
+}
+
+/* 凭证悬浮预览样式 */
+.attachment-hover-preview {
+    position: fixed;
+    z-index: 1080;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 0.5rem;
+    padding: 4px;
+    box-shadow: 0 0.5rem 1rem rgba(15, 23, 42, 0.15);
+    max-width: 260px;
+    max-height: 260px;
+}
+
+.attachment-hover-preview img {
+    max-width: 252px;
+    max-height: 252px;
+    display: block;
+    object-fit: contain;
+}
+
+.attachment-thumb {
+    max-width: 60px;
+    max-height: 60px;
+    border-radius: 0.25rem;
+    cursor: zoom-in;
+    object-fit: cover;
+}
+
+.attachment-modal-img {
+    max-width: 100%;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+/* 列表表格行高亮：方便快速对齐到编辑按钮
+ * 采用明显的浅绿色高亮，效果类似常见后台的选中行背景。
+ * 直接作用在所有 tbody 行，避免受 table 类名限制。 */
+tbody tr:hover > * {
+    background-color: #e8f5e9 !important; /* 浅绿，高亮明显 */
+}
+
+/* 记账表单上半部分更圆润的卡片和控件样式 */
+.tx-form-card {
+    border-radius: 1.25rem;
+    background: linear-gradient(135deg, #f9fafb, #eef2ff);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+}
+
+.tx-form-grid {
+    row-gap: 0.75rem;
+}
+
+.tx-form-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tx-form-label {
+    min-width: 72px;
+    flex: 0 0 auto;
+    color: #6b7280;
+}
+
+.tx-form-control-wrap {
+    flex: 1 1 auto;
+}
+
+.tx-form-card .form-control,
+.tx-form-card .form-select,
+.tx-form-card textarea {
+    border-radius: 0.75rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 0.875rem;
+}
+
+/* 记账表单金额输入：略高一点，便于点击与输入 */
+.tx-amount-input {
+    padding-top: 0.45rem;
+    padding-bottom: 0.45rem;
+    font-size: 1rem;
+}
+
+/* 下拉框美化与分类颜色区分 */
+.tx-select {
+    border-radius: 0.5rem;
+    background-color: #ffffff;
+    background-image: linear-gradient(to bottom, #ffffff, #f9fafb);
+    border-color: rgba(148, 163, 184, 0.6);
+    font-size: 0.875rem;
+}
+
+.tx-select:focus {
+    border-color: #60a5fa;
+    box-shadow: 0 0 0 0.15rem rgba(59, 130, 246, 0.25);
+}
+
+.tx-category-select option[value=""] {
+    color: #9ca3af;
+}
+
+.tx-category-select option[data-type="expense"] {
+    color: #16a34a; /* 绿色：支出 */
+}
+
+.tx-category-select option[data-type="income"] {
+    color: #dc2626; /* 红色：收入 */
+}
+
+@media (max-width: 576px) {
+    .card {
+        border-radius: 0.6rem;
+    }
+    .sidebar {
+        width: 180px;
+    }
+}
+
+/* 移动端侧边栏折叠样式 */
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1040;
+        transform: translateX(-100%);
+        transition: transform 0.2s ease-out;
+    }
+
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+    }
+
+    .sidebar-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1030;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.2s ease-out;
+    }
+
+    body.sidebar-open .sidebar-overlay {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    body.sidebar-open {
+        overflow: hidden;
+    }
+}

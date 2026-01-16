@@ -1,0 +1,14 @@
+{
+  "name": "sans/ssjizhang",
+  "description": "SanS\u4e09\u77f3\u8bb0\u8d26\u7cfb\u7edf",
+  "type": "project",
+  "require": {
+    "php": ">=8.0",
+    "phpmailer/phpmailer": "^6.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
